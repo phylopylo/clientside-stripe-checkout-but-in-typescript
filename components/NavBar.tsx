@@ -26,4 +26,4 @@ export default function NavBar() {
       <ShoppingCart />
     </nav>
   );
-}
+} 

@@ -2,7 +2,18 @@ import { useState } from "react";
 import { formatCurrencyString } from "use-shopping-cart";
 import { useShoppingCart } from "use-shopping-cart";
 
-export default function Product({ product }) {
+interface ProductProps {
+  product: {
+    id: string;
+    name: string;
+    price: number;
+    emoji: string;
+    sku: string;
+    currency: string;
+  };
+}
+
+export default function Product({ product }: ProductProps) {
   const { addItem } = useShoppingCart();
   const { name, price, emoji } = product;
   const [quantity, setQuantity] = useState(1);
@@ -52,4 +63,4 @@ export default function Product({ product }) {
       </button>
     </article>
   );
-}
+} 

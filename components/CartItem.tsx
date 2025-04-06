@@ -2,7 +2,17 @@ import { useShoppingCart } from "use-shopping-cart";
 import { formatCurrencyString } from "use-shopping-cart";
 import Image from "next/image";
 
-export default function CartItem({ item }) {
+interface CartItemProps {
+  item: {
+    id: string;
+    name: string;
+    emoji: string;
+    quantity: number;
+    price: number;
+  };
+}
+
+export default function CartItem({ item }: CartItemProps) {
   const { name, emoji, quantity, price } = item;
   const { removeItem } = useShoppingCart();
 
@@ -27,4 +37,4 @@ export default function CartItem({ item }) {
       </button>
     </div>
   );
-}
+} 

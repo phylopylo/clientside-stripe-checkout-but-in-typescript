@@ -1,8 +1,9 @@
 import Layout from "@/components/Layout";
 import "@/styles/globals.css";
 import { CartProvider } from "use-shopping-cart";
+import { AppProps } from "next/app";
 
-export default function App({ Component, pageProps }) {
+export default function App({ Component, pageProps }: AppProps) {
   return (
     <CartProvider
       mode="payment"
@@ -25,4 +26,4 @@ export default function App({ Component, pageProps }) {
       </Layout>
     </CartProvider>
   );
-}
+} 

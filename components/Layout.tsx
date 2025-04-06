@@ -1,7 +1,12 @@
 import Head from "next/head";
 import NavBar from "./NavBar";
+import { ReactNode } from "react";
 
-export default function Layout({ children }) {
+interface LayoutProps {
+  children: ReactNode;
+}
+
+export default function Layout({ children }: LayoutProps) {
   return (
     <>
       <Head>
@@ -19,4 +24,4 @@ export default function Layout({ children }) {
       </main>
     </>
   );
-}
+} 

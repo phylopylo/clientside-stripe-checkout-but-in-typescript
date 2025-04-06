@@ -1,13 +1,15 @@
 import { useState } from "react";
 import { useShoppingCart } from "use-shopping-cart";
 
+type Status = "idle" | "loading" | "redirect-error" | "no-items";
+
 export default function CheckoutButton() {
-  const [status, setStatus] = useState("idle");
+  const [status, setStatus] = useState<Status>("idle");
   const { redirectToCheckout, cartCount, totalPrice } = useShoppingCart();
 
-  async function handleClick(event) {
+  async function handleClick(event: React.MouseEvent<HTMLButtonElement>) {
     event.preventDefault();
-    if (cartCount > 0) {
+    if (cartCount && cartCount > 0) {
       setStatus("loading");
       try {
         const result = await redirectToCheckout();
@@ -52,4 +54,4 @@ export default function CheckoutButton() {
       </button>
     </article>
   );
-}
+} 
