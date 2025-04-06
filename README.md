@@ -1,14 +1,1 @@
-![github blog post 2](https://user-images.githubusercontent.com/64803272/222930765-dae53a8e-9811-4829-8410-43dfa148ddf1.png)
-
-# Welcome
-
-Welcome! This is a repository containing the starter code and final code from my tutorial [Building a shopping cart in Next.js with use-shopping-cart and Stripe](https://codingwithlucy.hashnode.dev/build-a-shopping-cart-in-nextjs-with-use-shopping-cart-and-stripe).
-
-Please refer to [my blog post](https://codingwithlucy.hashnode.dev/build-a-shopping-cart-in-nextjs-with-use-shopping-cart-and-stripe) for full instructions on how to use this code.
-
-- Demo: https://simple-ecommerce-nextjs.vercel.app/
-
-## Branches
-
-- `main`: starter code (use this if you would like to follow along with the tutorial)
-- `final-version`: final code (what is currently deployed on Vercel)
+I'm cheap and I don't wanna spend money on a monthly subscription to Shopify or anybody else. Stripe is nice because they just take a cut off of every transaction. I also don't want to worry about maintaining and paying for a VPS for this project, so I also need this to just work client-side. The original project works great, I just need to repackage the base functionality to be compatible with my project's stack.
