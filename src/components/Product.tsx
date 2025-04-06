@@ -34,33 +34,42 @@ export default function Product({ product }: ProductProps) {
   };
 
   return (
-    <article className="flex flex-col gap-3 bg-white p-8 rounded-xl shadow-md text-center mb-6">
-      <div className="text-8xl cursor-default">{emoji}</div>
-      <div className="text-lg">{name}</div>
-      <div className="text-2xl font-semibold mt-auto">
-        {formatCurrencyString({ value: price, currency: "GBP" })}
-      </div>
-      <div className="flex justify-around items-center mt-4 mb-2 ">
+    <article className="flex flex-col bg-white rounded-lg shadow-sm overflow-hidden">
+      <div className="p-6 flex flex-col items-center">
+        <div className="text-7xl mb-4" role="img" aria-label={name}>
+          {emoji}
+        </div>
+        <h2 className="text-lg font-medium text-gray-900 mb-2">{name}</h2>
+        <div className="text-xl font-semibold text-emerald-600 mb-4">
+          {formatCurrencyString({ value: price, currency: "GBP" })}
+        </div>
+        
+        <div className="flex items-center justify-center space-x-4 mb-4">
+          <button
+            onClick={decreaseQuantity}
+            className="w-8 h-8 flex items-center justify-center rounded-full border border-gray-300 text-gray-600 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+            aria-label="Decrease quantity"
+            disabled={quantity <= 1}
+          >
+            -
+          </button>
+          <span className="w-8 text-center font-medium">{quantity}</span>
+          <button
+            onClick={increaseQuantity}
+            className="w-8 h-8 flex items-center justify-center rounded-full border border-gray-300 text-gray-600 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+            aria-label="Increase quantity"
+          >
+            +
+          </button>
+        </div>
+
         <button
-          onClick={decreaseQuantity}
-          className="hover:text-emerald-500 hover:bg-emerald-50 w-8 h-8 rounded-full transition-colors duration-500"
+          onClick={addToCart}
+          className="w-full bg-emerald-600 text-white py-2 px-4 rounded-md hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 transition-colors"
         >
-          -
-        </button>
-        <span className="w-10 text-center rounded-md mx-3">{quantity}</span>
-        <button
-          onClick={increaseQuantity}
-          className="hover:text-emerald-500 hover:bg-emerald-50 w-8 h-8 rounded-full transition-colors duration-500"
-        >
-          +
+          Add to Cart
         </button>
       </div>
-      <button
-        onClick={() => addToCart()}
-        className="bg-emerald-50 hover:bg-emerald-500 hover:text-white transition-colors duration-500 text-emerald-500 rounded-md px-5 py-2"
-      >
-        Add to cart
-      </button>
     </article>
   );
 } 
